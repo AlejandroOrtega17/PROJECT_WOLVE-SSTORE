@@ -370,7 +370,7 @@ void ganacia(){
        float TOTAL;
 
 TOTAL = ACPR1 + ACPG2 + ACPC3 + ACPA1 + ACPA2 + ACPHR +ACPHP;
-cout << "Total actual: " <<"$"<< TOTAL << " D"<<char(162)<<"lares"<< endl;
+cout << "Gasto total en la compra actual: " <<"$"<< TOTAL << " D"<<char(162)<<"lares"<< endl;
 system("cls");
 }
 
@@ -425,7 +425,10 @@ void tipplantas(){
         case 1:
         if(acumR1==0){
             cout << "\n\t\tLo sentimos" << endl;
-            cout << "No hay Rosas arcoiris disponibles en este momento" <<  endl;}
+            cout << "No hay Rosas arcoiris disponibles en este momento" <<  endl;
+             system("pause");
+             system("cls");
+            }
             else{
         unaventaplanta.Nrosa;
            do{ cout<<"\nCu"<<char(160)<<"ntas desea llevar: ";  
@@ -439,8 +442,12 @@ void tipplantas(){
         
         case 2:  
           if(acumG2==0){
+              
             cout << "\n\t\tLo sentimos" << endl;
-            cout << "No hay Girasoles de la vida disponibles en este momento" <<  endl;}
+            cout << "No hay Girasoles de la vida disponibles en este momento" <<  endl;
+            system("pause");
+             system("cls");
+             }
             else{
         unaventaplanta.Ngirasol;
            do{ cout<<"\nCu"<<char(160)<<"ntas desea llevar: "; 
@@ -455,7 +462,10 @@ void tipplantas(){
         case 3:
           if(acumC3==0){
             cout << "\n\t\tLo sentimos" << endl;
-            cout << "No hay Claveles de la noche disponibles en este momento" <<  endl;}
+            cout << "No hay Claveles de la noche disponibles en este momento" <<  endl;
+             system("pause");
+             system("cls");
+             }
             else{
               do{ cout<<"\nCu"<<char(160)<<"ntas desea llevar: ";  
            cin >> unaventaplanta.cantidadarticulos;}while(unaventaplanta.cantidadarticulos<0);
@@ -493,6 +503,8 @@ void tipaono(){
         if(acumA1==0){
              cout << "\n\t\tLo sentimos" << endl;
             cout << "No hay abono sencillo disponibles en este momento" <<  endl;
+            system("pause");
+             system("cls");
         }
 else{
     
@@ -503,7 +515,7 @@ else{
                 agregarproducto(unaventabono.NAB1, unaventabono.cantidadarticulos, unaventabono.precioporcantidad);
                 acump4 += unaventabono.precioporcantidad;
                 acumA1 = acumA1 - acump4;
-                 cout << char(168)<<"Desea seguir comprando en este apartado?" << endl;
+                 cout << char(168)<<"Desea seguir comprando en este apartado?" << endl; }
         break;
         
         case 2: 
@@ -511,6 +523,8 @@ else{
         if(acumA2==0){
             cout << "\n\t\tLo sentimos" << endl;
             cout << "No hay abono grande disponibles en este momento" <<  endl;
+            system("pause");
+             system("cls");
         } 
 else{
         unaventabono.NAB2;
@@ -549,7 +563,10 @@ void tipherramientas(){
         case 1: 
           if(acumHR==0){
             cout << "\n\t\tLo sentimos" << endl;
-            cout << "No hay Rastrillos disponibles en este momento" <<  endl;}
+            cout << "No hay Rastrillos disponibles en este momento" <<  endl;
+            system("pause");
+             system("cls");
+             }
             else{
         unaventaH.NHR;
            do{ cout<<"\nCu"<<char(160)<<"ntas desea llevar: "; 
@@ -564,7 +581,9 @@ void tipherramientas(){
         case 2: 
           if(acumHP==0){
             cout << "\n\t\tLo sentimos" << endl;
-            cout << "No hay Palas disponibles en este momento" <<  endl;}
+            cout << "No hay Palas disponibles en este momento" <<  endl;
+            system("pause");
+             system("cls");}
             else{
         unaventaH.NHP;
               do{ cout<<"\nCu"<<char(160)<<"ntas desea llevar: "; 
