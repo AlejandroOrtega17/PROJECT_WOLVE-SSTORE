@@ -2,7 +2,6 @@
 #include <list>
 #include <algorithm>
 #include <string>
-#include <stack>
 #include <queue>
 
 using namespace std;
@@ -94,12 +93,14 @@ void agregarproducto(string namae, int canart, float precioart);
 void Totalincliente();
 void factura();
 
+
+
 //Creamos la lista para las compras de los clientes 
 list<venta> client;
 
 //Acumuladores
 //Estos acumuladoras funcionaran como registros de entrada y salida
-float acumR1, acumG2, acumC3, acumA1, acumA2,acumHR,acumHP;
+float acumR1=0, acumG2=0, acumC3=0, acumA1=0, acumA2=0,acumHR=0,acumHP=0;
 float acump1=0, acump2=0, acump3=0, acump4=0, acump5=0, acump6=0, acump7=0;
 float ACPR1, ACPG2, ACPC3, ACPA1, ACPA2, ACPHR, ACPHP;
 
@@ -117,24 +118,24 @@ do{
     cout<<"\n\t 2) Cliente";
     cout<<"\n\t 3) Salir";
     cout<<"\n Digite su opci"<< char(162)<<"n: ";
-        cin>>opcion;
+    cin>>opcion;
 
-    switch (opcion){
-        case 1: menuadmin(); break;
+        switch (opcion){
+            case 1: menuadmin(); break;
 
-        case 2: cout<<"\n\t\tBIENVENIDO A LA FLORERIA WOLVES";    
-                cliente(); break;
+            case 2:    cliente(); break;
 
-        case 3: cout<<"\n\n\t\tGracias por su visita, lo esperamos pronto."<<endl; 
-        system("pause");
-        system("cls");
-        continuar1 = false; break;
+            case 3: cout<<"\n\n\t\tGracias por su visita, lo esperamos pronto."<<endl; 
+                system("pause");
+                system("cls");
+            
+            continuar1 = false; break;
 
-        default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
+            default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
         
         }
 }while(continuar1);
- system("cls");
+system("cls");
 return 0; }
 
  //Menu que se le despliega al administrador de la tienda
@@ -146,19 +147,19 @@ system("cls");
        
    do{
       cout<<"\n\t1) Inventario";
-      cout<<"\n\t2) Ganancias de ventas";
+      cout<<"\n\t2) Gasto en compra de lotes";
       cout<<"\n\t3) Ir al men"<<char(163)<<" principal";
       cout<<"\nDigite su opci"<< char(162)<<"n: ";
       cin>>admin1;
 
-    switch (admin1){
-        case 1: inventario(); break;
+        switch (admin1){
+            case 1: inventario(); break;
         
-        case 2:  ganacia(); break;
+            case 2:  ganacia(); break;
 
-        case 3: continuar2 = false; break;
+            case 3: continuar2 = false; break;
 
-        default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
+            default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
     }
    }while(continuar2);
 }
@@ -175,14 +176,14 @@ void inventario(){
        cout<<"\nDigite su opci"<< char(162)<<"n: ";
        cin>>lot;
 
-    switch (lot){
-        case 1:  agregar(); break; //agregar compras
+        switch (lot){
+            case 1:  agregar(); break; //agregar compras
         
-        case 2: showtime();  break; //Ver inventario
+            case 2: showtime();  break; //Ver inventario
 
-        case 3: continuar3 = false; break;
+            case 3: continuar3 = false; break;
 
-        default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
+            default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
     }
    }while(continuar3);
    system("cls");
@@ -206,76 +207,82 @@ void inventario(){
         cout << "Digite su opci"<< char(162)<<"n: ";
         cin >> cheek; cin.ignore();  
     
-        switch (cheek){
+            switch (cheek){
             
-        case 1:
-        do{cout << "Digite la c"<<char(160)<<"ntidad: ";
-         cin >> PNU.cantidad;} while(PNU.cantidad<0);
-            PNU.TCP = PNU.cantidad * PNU.preciof1;  
-        cout << "El precio de la compra: " << PNU.TCP << endl;
-            AU.Rosa.push(PNU);
-                acumR1+=PNU.cantidad;
-                ACPR1+= PNU.TCP;
-        select = false; break;
+                case 1:
+                        do{cout << "Digite la c"<<char(160)<<"ntidad: ";
+                            cin >> PNU.cantidad;} while(PNU.cantidad<0);
+                            PNU.TCP = PNU.cantidad * PNU.preciof1;  
+                            cout << "El precio de la compra: " << PNU.TCP << endl;
+                            AU.Rosa.push(PNU);
+                            acumR1+=PNU.cantidad;
+                            ACPR1+= PNU.TCP;
 
-        case 2:
-         do{cout << "Digite la c"<<char(160)<<"ntidad: ";
-          cin >> PNU.cantidad; }while(PNU.cantidad<0);
-            PNU.TCP = PNU.cantidad * PNU.preciof2;  
-         cout << "El precio de la compra: " << PNU.TCP << endl;
-            AU.Girasol.push(PNU);
-                acumG2+=PNU.cantidad;
-                ACPG2+= PNU.TCP ;
-        select = false; break;
+                            select = false; break;
 
-        case 3: 
-          do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
-         PNU.TCP = PNU.cantidad * PNU.preciof3;  
-         cout << "El precio de la compra: " << PNU.TCP << endl; 
-            AU.clavel.push(PNU); 
-                acumC3 += PNU.cantidad;
-                ACPC3+= PNU.TCP;
-        select = false; break;
+                case 2:
+                        do{cout << "Digite la c"<<char(160)<<"ntidad: ";
+                        cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.preciof2;  
+                        cout << "El precio de la compra: " << PNU.TCP << endl;
+                        AU.Girasol.push(PNU);
+                        acumG2+=PNU.cantidad;
+                        ACPG2+= PNU.TCP ;
+                        select = false; break;
 
-        case 4:
-          do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
-         PNU.TCP = PNU.cantidad * PNU.precioa1;  
-         cout << "El precio de la compra: " << PNU.TCP << endl;
-            AU.AbonoSencillo.push(PNU); 
-            acumA1+= PNU.cantidad;
-            ACPA1 += PNU.TCP;
-        select = false; break;
+                case 3: 
+                        do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.preciof3;  
+                        cout << "El precio de la compra: " << PNU.TCP << endl; 
+                        AU.clavel.push(PNU); 
+                        acumC3 += PNU.cantidad;
+                        ACPC3+= PNU.TCP;
 
-        case 5:
-          do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
-         PNU.TCP = PNU.cantidad * PNU.precioa2; 
-         cout << "El precio de la compra: " << PNU.TCP << endl; 
-            AU.AbonoGrande.push(PNU); 
-                acumA2+= PNU.cantidad;
-                ACPA2+= PNU.TCP;
-        select = false; break;
+                        select = false; break;
 
-        case 6:
-         do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
-         PNU.TCP = PNU.cantidad * PNU.precioh1;
-         cout << "El precio de la compra: " << PNU.TCP << endl;  
-            AU.HR.push(PNU);
-                acumHR+= PNU.cantidad;
-                ACPHR+= PNU.TCP;
-        select = false; break;
+                case 4:
+                        do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.precioa1;  
+                        cout << "El precio de la compra: " << PNU.TCP << endl;
+                        AU.AbonoSencillo.push(PNU); 
+                        acumA1+= PNU.cantidad;
+                        ACPA1 += PNU.TCP;
 
-        case 7:
-         do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
-         PNU.TCP = PNU.cantidad * PNU.precioh2; 
-         cout << "El precio de la compra: " << PNU.TCP << endl; 
-            AU.HP.push(PNU);
-                acumHP+= PNU.cantidad;
-                ACPHP+= PNU.TCP;
-        select = false; break;
+                        select = false; break;
 
-        case 8: select = false ; break;    
+                case 5:
+                        do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.precioa2; 
+                        cout << "El precio de la compra: " << PNU.TCP << endl; 
+                        AU.AbonoGrande.push(PNU); 
+                        acumA2+= PNU.cantidad;
+                        ACPA2+= PNU.TCP;
 
-        default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo"; 
+                        select = false; break;
+
+                case 6:
+                        do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.precioh1;
+                        cout << "El precio de la compra: " << PNU.TCP << endl;  
+                        AU.HR.push(PNU);
+                        acumHR+= PNU.cantidad;
+                        ACPHR+= PNU.TCP;
+
+                        select = false; break;
+
+                case 7:
+                        do{cout << "Digite la cantidad: "; cin >> PNU.cantidad; }while(PNU.cantidad<0);
+                        PNU.TCP = PNU.cantidad * PNU.precioh2; 
+                        cout << "El precio de la compra: " << PNU.TCP << endl; 
+                        AU.HP.push(PNU);
+                        acumHP+= PNU.cantidad;
+                        ACPHP+= PNU.TCP;
+                        
+                        select = false; break;
+
+                case 8: select = false ; break;    
+
+                default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo"; 
         }
     }while (select);
     system("pause");
@@ -285,12 +292,13 @@ void inventario(){
 //Función general para mostrar las colas 
 void showQueue(queue<AT> q) {
         queue<AT> clone = q;
-    while (!clone.empty()) {
-        cout << "C"<<char(160)<<"ntidad de compra de lote " << clone.front().cantidad << endl;
-        cout << "$"<< clone.front().TCP << " D"<<char(162)<<"lares"<< endl;
-        clone.pop();
+                while (!clone.empty()) {
+                    cout << "C"<<char(160)<<"ntidad de compra de lote " << clone.front().cantidad << endl;
+                    cout << "$"<< clone.front().TCP << " D"<<char(162)<<"lares"<< endl;
+                    clone.pop();
     }
 }
+
 //Función para mostrar los lotes comprados y cantidades actuales en stocks 
 void showtime(){ 
  system("cls");
@@ -369,10 +377,10 @@ system("cls");
 
 void ganacia(){
  system("cls");
-       float TOTAL;
+    float TOTAL;
 
-TOTAL = ACPR1 + ACPG2 + ACPC3 + ACPA1 + ACPA2 + ACPHR +ACPHP;
-cout << "Gasto total en la compra actual: " <<"$"<< TOTAL << " D"<<char(162)<<"lares"<< endl;
+    TOTAL = ACPR1 + ACPG2 + ACPC3 + ACPA1 + ACPA2 + ACPHR +ACPHP;
+    cout << "Gasto total en la compra de lotes actual: " <<"$"<< TOTAL << " D"<<char(162)<<"lares"<< endl;
 system("pause");
 system("cls");
 }
@@ -382,6 +390,9 @@ void cliente(){
  system("cls");
       bool continuar4 = true;
       int usuario = 0;
+       string alahu;
+
+       cout<<"\n\t\tBIENVENIDO A LA FLORERIA WOLVES" << endl;
 
       do{
           cout<<"\n\t1) Comprar plantas";
@@ -392,21 +403,21 @@ void cliente(){
           cout<<"\nDigite su opci"<< char(162)<<"n: ";
           cin>>usuario;
       
-      switch (usuario){
-        case 1:  cout<<"\n\t\tEliga la planta que desea comprar:";
+            switch (usuario){
+                case 1:  cout<<"\n\t\tEliga la planta que desea comprar:";
                 tipplantas(); break;
         
-        case 2:  cout<<"\n\t\tElige como quieres tu abono:";
+                case 2:  cout<<"\n\t\tElige como quieres tu abono:";
                 tipaono(); break;
 
-        case 3:  cout<<"\n\t\tCompra tus herramientas para tu jardin:";
+                case 3:  cout<<"\n\t\tCompra tus herramientas para tu jardin:";
                 tipherramientas(); break;
 
-        case 4:  factura();  continuar4 = false; break; 
+                case 4:  factura();  continuar4 = false; break; 
+            
+                case 5:  continuar4 = false; break;
 
-        case 5:  continuar4 = false; break;
-
-        default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
+                default: cout<<"Opci"<< char(162)<<"n" <<" no" " v"<<char(160)<<"lida, intente de nuevo";
     }
    }while(continuar4);
     }
@@ -425,7 +436,7 @@ void tipplantas(){
             cout<<"\n\tDigite su opci"<< char(162)<<"n: ";
             cin>>plantass;
 
-    switch (plantass){
+            switch (plantass){
         case 1:
         //****************************//
         if(acumR1==0){
@@ -742,7 +753,7 @@ void tipherramientas(){
  }
 
 //Agrega el producto a la lista del cliente
-void agregarproducto (string namae, int canart, float precioart){
+void agregarproducto(string namae, int canart, float precioart){
     venta unaventa; 
     unaventa.namesitos = namae;
     unaventa.count_art = canart;
@@ -750,6 +761,7 @@ void agregarproducto (string namae, int canart, float precioart){
     
     client.insert(client.end(), unaventa);
 }
+
 //Se realiza la suma para la cuenta del cliente
 void Totalincliente(){
     float TOTALAPAGAR ;
@@ -757,6 +769,7 @@ void Totalincliente(){
     TOTALAPAGAR = acump1 + acump2+ acump3+ acump4+ acump5+ acump6+acump7;
     cout << "\n\t\t  El Total a pagar es: $ " <<TOTALAPAGAR <<  endl;
 }
+
 //Para mostrar la factura al cliente 
 void factura(){      
     system("cls"); 
