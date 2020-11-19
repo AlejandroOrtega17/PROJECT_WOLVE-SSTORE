@@ -1,4 +1,4 @@
-# PROJECT_PLANTITA
+# PROJECT_WOLVES_STORE
 
 #Integrantes: 
 Douglas Alejandro Albeño Ortega #00166120
